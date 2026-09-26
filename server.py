@@ -307,9 +307,10 @@ def send_json(
 ):
 
     raw = json.dumps(
-        data,
-        ensure_ascii=False
-    ).encode()
+    data,
+    ensure_ascii=False,
+    default=str
+).encode()
 
     handler.send_response(code)
 
