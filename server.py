@@ -5,11 +5,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / 'bhoomiai.db'
-HOST = '127.0.0.1'
-PORT = 5500
+
+HOST = '0.0.0.0'
+PORT = int(os.environ.get('PORT', 5500))
+
 SESSION_TTL = 8 * 60 * 60
 OTP_TTL = 5 * 60
-
 
 def db():
     c = sqlite3.connect(DB_PATH)
